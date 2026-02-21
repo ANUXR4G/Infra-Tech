@@ -1,12 +1,12 @@
 "use client";
-"use client";
 
 import { useEffect, useRef } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import { CheckCircle2, Award, Users, Zap } from 'lucide-react'
+import Link from 'next/link'
+import { CheckCircle2, Award, Users, Zap, Building2, Target, Sparkles, Shield, ArrowRight } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -17,43 +17,88 @@ export default function AboutPage() {
   const storyRef = useRef<HTMLElement>(null)
   const valuesRef = useRef<HTMLElement>(null)
   const teamRef = useRef<HTMLElement>(null)
+
   const values = [
     {
       icon: Award,
       title: 'Excellence',
-      description: 'We are committed to delivering exceptional quality in every project we undertake.',
+      description: 'We are committed to delivering exceptional quality in every project. Our team ensures meticulous attention to detail, premium materials, and superior craftsmanship to guarantee maximum client satisfaction and lasting results.',
+      highlights: ['Premium Quality Materials', 'Attention to Detail', 'Superior Craftsmanship'],
     },
     {
       icon: Users,
       title: 'Collaboration',
-      description: 'Working closely with clients and teams to achieve shared goals and vision.',
+      description: 'We believe in building strong partnerships with our clients. By working closely with stakeholders across industries, we understand unique requirements and deliver solutions that align with shared goals and vision.',
+      highlights: ['Client-Centric Approach', 'Open Communication', 'Partnership Building'],
     },
     {
       icon: Zap,
       title: 'Innovation',
-      description: 'Embracing modern technologies and techniques to improve efficiency and outcomes.',
+      description: 'We embrace cutting-edge technologies and modern construction techniques. Our team continuously updates skills and adopts innovative solutions to ensure efficient project execution and stay ahead in the industry.',
+      highlights: ['Latest Technologies', 'Modern Techniques', 'Continuous Learning'],
     },
     {
       icon: CheckCircle2,
       title: 'Integrity',
-      description: 'Operating with transparency and honesty in all our business relationships.',
+      description: 'Honesty and transparency form the foundation of our business relationships. We maintain ethical practices, provide accurate project estimates, and ensure clear communication throughout every project phase.',
+      highlights: ['Transparent Pricing', 'Ethical Practices', 'Honest Communication'],
+    },
+    {
+      icon: Shield,
+      title: 'Reliability',
+      description: 'Our clients trust us for consistent, dependable service delivery. With over a decade of experience, we have built a reputation for meeting deadlines, honoring commitments, and delivering projects on time and within budget.',
+      highlights: ['On-Time Delivery', 'Budget Compliance', 'Consistent Quality'],
+    },
+    {
+      icon: Target,
+      title: 'Customer Focus',
+      description: 'Every decision we make is driven by customer satisfaction. We listen to client needs, provide customized solutions, and go the extra mile to ensure complete satisfaction with our work and services.',
+      highlights: ['Customized Solutions', 'Responsive Support', '100% Satisfaction'],
     },
   ]
 
-  const team = [
-    { name: 'John Smith', role: 'CEO & Founder', image: '/hero-construction.jpg' },
-    { name: 'Sarah Johnson', role: 'Chief Architect', image: '/about-construction.jpg' },
-    { name: 'Michael Chen', role: 'Project Manager', image: '/quality-construction.jpg' },
-    { name: 'Emily Davis', role: 'Lead Engineer', image: '/project1-residences.jpg' },
+  const teamHighlights = [
+    { 
+      icon: Building2, 
+      title: 'Engineers', 
+      description: 'Skilled professionals with diverse industrial experience',
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=300&h=300&fit=crop',
+    },
+    { 
+      icon: Target, 
+      title: 'Architects', 
+      description: 'Creative designers focused on functional excellence',
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=300&h=300&fit=crop',
+    },
+    { 
+      icon: Sparkles, 
+      title: 'Project Managers', 
+      description: 'Experts ensuring timely project completion',
+      image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=300&h=300&fit=crop',
+    },
+    { 
+      icon: Shield, 
+      title: 'Skilled Workforce', 
+      description: 'Trained laborers delivering quality workmanship',
+      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&h=300&fit=crop',
+    },
   ]
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Hero animations
+      gsap.from(".about-hero-badge", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      })
+
       gsap.from(".about-hero-title", {
         y: 60,
         opacity: 0,
         duration: 1,
+        delay: 0.2,
         ease: "power3.out",
       })
 
@@ -61,7 +106,15 @@ export default function AboutPage() {
         y: 40,
         opacity: 0,
         duration: 0.8,
-        delay: 0.2,
+        delay: 0.4,
+        ease: "power3.out",
+      })
+
+      gsap.from(".about-hero-stats", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.6,
         ease: "power3.out",
       })
 
@@ -165,16 +218,73 @@ export default function AboutPage() {
     <main className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
-      <section ref={heroRef} className="w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-        <div className="container mx-auto max-w-7xl">
-          <div className="flex flex-col gap-4 text-center">
-            <h1 className="about-hero-title text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-              About InfraTech
-            </h1>
-            <p className="about-hero-desc text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Transforming visions into reality with 30+ years of construction excellence and innovation.
-            </p>
+      {/* Hero Section - Enhanced */}
+      <section ref={heroRef} className="relative w-full min-h-[70vh] flex items-center py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-secondary/30" />
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="flex flex-col gap-6">
+              <div className="about-hero-badge inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full w-fit font-medium">
+                <Building2 className="w-4 h-4" />
+                Established 2014
+              </div>
+              
+              <h1 className="about-hero-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
+                Building Excellence,{' '}
+                <span className="text-accent">Delivering Trust</span>
+              </h1>
+              
+              <p className="about-hero-desc text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
+                INFRATECH INDIA is a leading contracting and trading company, specializing in providing comprehensive services to commercial organizations since 2014.
+              </p>
+
+              <div className="about-hero-stats grid grid-cols-3 gap-6 pt-6 border-t border-border">
+                <div>
+                  <div className="text-3xl sm:text-4xl font-bold text-accent">10+</div>
+                  <div className="text-sm text-muted-foreground">Years Experience</div>
+                </div>
+                <div>
+                  <div className="text-3xl sm:text-4xl font-bold text-accent">100+</div>
+                  <div className="text-sm text-muted-foreground">Projects Done</div>
+                </div>
+                <div>
+                  <div className="text-3xl sm:text-4xl font-bold text-accent">50+</div>
+                  <div className="text-sm text-muted-foreground">Happy Clients</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop"
+                  alt="INFRATECH INDIA Construction Excellence"
+                  fill
+                  className="object-cover"
+                  priority
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+              {/* Floating Card */}
+              <div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-2xl shadow-xl border border-border max-w-xs">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                    <Award className="w-6 h-6 text-accent" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">GSTIN Registered</div>
+                    <div className="text-sm text-muted-foreground">07AWCPA8065H1ZN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -186,10 +296,11 @@ export default function AboutPage() {
             {/* Image */}
             <div className="story-image relative h-80 sm:h-96 lg:h-full lg:min-h-[500px] rounded-3xl overflow-hidden">
               <Image
-                src="/about-construction.jpg"
-                alt="InfraTech team working on construction"
+                src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=800&h=600&fit=crop"
+                alt="INFRATECH INDIA team at work"
                 fill
                 className="object-cover"
+                unoptimized
               />
             </div>
 
@@ -200,20 +311,27 @@ export default function AboutPage() {
                   Our Story
                 </h2>
                 <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Founded in 1994, InfraTech has grown from a small local contractor to a leading construction company. Our journey has been marked by continuous innovation, unwavering commitment to quality, and a passion for building spaces that inspire and endure.
+                  Since our establishment in 2014, INFRATECH INDIA has successfully supported clients across a wide range of industries, including construction, manufacturing, hospitality, IT, entertainment, and education. Our commitment to excellence is reflected in our ability to deliver top-tier services.
                 </p>
               </div>
 
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                With over 30 years of experience, we have successfully completed more than 300 projects across residential, commercial, and industrial sectors. Our team of skilled professionals brings together expertise, creativity, and dedication to every project.
+                We have forged valuable partnerships with a diverse range of industries. Our portfolio includes esteemed clients such as Larsen & Toubro, Yakult-Danone, TDI, CBRE, Kamani Auditorium, PSRI Hospital, and Amity, among others. These collaborations have enriched our experience.
               </p>
 
               <div className="space-y-3 pt-4">
                 <h3 className="text-xl font-semibold text-foreground">Our Mission</h3>
                 <p className="text-muted-foreground">
-                  To provide exceptional construction services that exceed client expectations, enhance communities, and create sustainable spaces that inspire. We are dedicated to building not just structures, but lasting relationships with our clients.
+                  To provide comprehensive turnkey solutions for interior & building construction, including water proofing, electrical and other allied services. We deliver customized solutions to meet the unique needs of our clients.
                 </p>
               </div>
+
+              <Link href="/contact">
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-fit mt-4">
+                  Get in Touch
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -227,101 +345,65 @@ export default function AboutPage() {
               Our Core Values
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              These principles guide our decisions and actions every single day.
+              These principles guide our decisions and actions every single day, ensuring we deliver excellence in every project.
             </p>
           </div>
 
-          <div className="values-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="values-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="value-card bg-card p-6 rounded-2xl border border-border hover:shadow-lg hover:border-accent/50 transition-all duration-300"
+                className="value-card bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-accent/50 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <value.icon className="w-6 h-6 text-accent" />
+                {/* Value Header with Icon */}
+                <div className="relative h-32 bg-gradient-to-br from-accent/20 via-accent/10 to-transparent flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <value.icon className="w-8 h-8 text-accent" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{value.title}</h3>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="stats-section w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {[
-              { number: '30+', label: 'Years of Experience' },
-              { number: '300+', label: 'Completed Projects' },
-              { number: '500+', label: 'Team Members' },
-              { number: '100%', label: 'Client Satisfaction' },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="stat-item flex flex-col gap-2"
-              >
-                <div className="text-4xl sm:text-5xl font-bold text-accent">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section ref={teamRef} className="w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-        <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12 team-title">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Leadership Team
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Meet the experienced professionals leading InfraTech forward.
-            </p>
-          </div>
-
-          <div className="team-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <div
-                key={index}
-                className="team-card bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg hover:-translate-y-2 transition-all duration-300"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
-                  <p className="text-sm text-accent mt-1 font-semibold">{member.role}</p>
+                
+                {/* Value Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{value.description}</p>
+                  
+                  {/* Highlights */}
+                  <div className="space-y-2">
+                    {value.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm">
+                        <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                        <span className="text-foreground">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section>  
 
       {/* CTA Section */}
-      <section className="w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-y border-border">
+      <section className="w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-y border-border bg-accent/5">
         <div className="container mx-auto max-w-7xl text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Ready to Work With Us?
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Let's discuss how our expertise can bring your construction project to life.
+            Let's discuss how our expertise can bring your construction and interior project to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
-              Get in Touch
-            </Button>
-            <Button size="lg" variant="outline" className="font-semibold">
-              View Portfolio
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+                Get in Touch
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/projects">
+              <Button size="lg" variant="outline" className="font-semibold">
+                View Our Clients
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

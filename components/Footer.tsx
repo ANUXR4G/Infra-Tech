@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -14,7 +15,6 @@ import {
   Phone,
   MapPin,
   ArrowUp,
-  Hammer,
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -91,11 +91,11 @@ export default function Footer() {
   ];
 
   const services = [
-    { name: "Building Renovation", href: "/services" },
-    { name: "Interior Finishing", href: "/services" },
-    { name: "Roofing Solutions", href: "/services" },
-    { name: "Foundation Repair", href: "/services" },
-    { name: "Commercial Construction", href: "/services" },
+    { name: "Turnkey Contracting", href: "/services" },
+    { name: "Commercial Furniture", href: "/services" },
+    { name: "Construction & Engineering", href: "/services" },
+    { name: "Customizable Solutions", href: "/services" },
+    { name: "Consultancy Services", href: "/services" },
   ];
 
   const socialLinks = [
@@ -143,18 +143,20 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             {/* Company Info */}
             <div className="footer-section">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                  <Hammer className="w-5 h-5 text-accent-foreground" />
-                </div>
-                <span className="text-2xl font-bold text-foreground">
-                  InfraTech
+              <div className="flex items-center gap-3 mb-6">
+                <Image
+                  src="/logo.png"
+                  alt="INFRATECH INDIA"
+                  width={48}
+                  height={48}
+                  className="h-12 w-auto"
+                />
+                <span className="text-xl font-bold text-foreground">
+                  INFRATECH INDIA
                 </span>
               </div>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Building excellence since 1994. We transform visions into
-                reality with innovative construction solutions and unwavering
-                commitment to quality.
+                Since 2014, providing comprehensive turnkey solutions for interior & building construction, commercial furniture trading, and expert consultancy services.
               </p>
               <div className="social-icons-container flex gap-3">
                 {socialLinks.map((social, index) => (
@@ -223,7 +225,7 @@ export default function Footer() {
                   <div>
                     <p className="text-foreground font-medium">Address</p>
                     <p className="text-muted-foreground text-sm">
-                      123 Construction Ave, New York, NY 10001
+                      E69, Ground Floor, Jasola, New Delhi - 110025
                     </p>
                   </div>
                 </li>
@@ -234,7 +236,7 @@ export default function Footer() {
                   <div>
                     <p className="text-foreground font-medium">Phone</p>
                     <p className="text-muted-foreground text-sm">
-                      +1 (555) 123-4567
+                      +91 7838737843, +91 8595613305
                     </p>
                   </div>
                 </li>
@@ -245,7 +247,7 @@ export default function Footer() {
                   <div>
                     <p className="text-foreground font-medium">Email</p>
                     <p className="text-muted-foreground text-sm">
-                      info@InfraTech.com
+                      info@infratechindia.in
                     </p>
                   </div>
                 </li>
@@ -260,8 +262,8 @@ export default function Footer() {
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm text-center md:text-left">
-              &copy; {new Date().getFullYear()} InfraTech. All rights reserved.
-              Building the future, one project at a time.
+              &copy; {new Date().getFullYear()} INFRATECH INDIA. All rights reserved.
+              GSTIN: 07AWCPA8065H1ZN
             </p>
             <div className="flex items-center gap-6">
               <Link

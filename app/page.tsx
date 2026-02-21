@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -281,19 +282,23 @@ export default function Page() {
               </p>
 
               <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button
-                  size="lg"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
-                >
-                  Book now
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="font-semibold"
-                >
-                  Call us
-                </Button>
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+                  >
+                    Get a Quote
+                  </Button>
+                </Link>
+                <a href="tel:+917838737843">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="font-semibold"
+                  >
+                    Call Us
+                  </Button>
+                </a>
               </div>
 
               {/* Stats */}
