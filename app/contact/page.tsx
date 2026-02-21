@@ -88,33 +88,29 @@ export default function ContactPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animations
+      // Hero animations - no opacity to prevent loading issues
       gsap.from(".contact-hero-badge", {
-        y: 30,
-        opacity: 0,
+        y: 20,
         duration: 0.8,
         ease: "power3.out",
       })
 
       gsap.from(".contact-hero-title", {
-        y: 60,
-        opacity: 0,
+        y: 30,
         duration: 1,
         delay: 0.2,
         ease: "power3.out",
       })
 
       gsap.from(".contact-hero-desc", {
-        y: 40,
-        opacity: 0,
+        y: 20,
         duration: 0.8,
         delay: 0.4,
         ease: "power3.out",
       })
 
       gsap.from(".contact-hero-cta", {
-        y: 30,
-        opacity: 0,
+        y: 20,
         duration: 0.8,
         delay: 0.6,
         ease: "power3.out",
@@ -122,42 +118,39 @@ export default function ContactPage() {
 
       // Contact info cards animations
       gsap.from(".contact-card", {
-        y: 60,
-        opacity: 0,
+        y: 30,
         duration: 0.6,
         stagger: 0.1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: contactInfoRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
       // Office cards animations
       gsap.from(".office-card", {
-        y: 50,
-        opacity: 0,
+        y: 30,
         duration: 0.6,
         stagger: 0.15,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".offices-section",
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
       // Form animations
       gsap.from(".form-section", {
-        y: 60,
-        opacity: 0,
+        y: 30,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
           trigger: formRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
     })

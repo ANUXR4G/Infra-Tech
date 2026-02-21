@@ -96,33 +96,29 @@ export default function ProjectsPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animations
+      // Hero animations - no opacity to prevent loading issues
       gsap.from(".projects-hero-badge", {
-        y: 30,
-        opacity: 0,
+        y: 20,
         duration: 0.8,
         ease: "power3.out",
       })
 
       gsap.from(".projects-hero-title", {
-        y: 60,
-        opacity: 0,
+        y: 30,
         duration: 1,
         delay: 0.2,
         ease: "power3.out",
       })
 
       gsap.from(".projects-hero-desc", {
-        y: 40,
-        opacity: 0,
+        y: 20,
         duration: 0.8,
         delay: 0.4,
         ease: "power3.out",
       })
 
       gsap.from(".featured-client", {
-        y: 40,
-        opacity: 0,
+        y: 20,
         duration: 0.6,
         stagger: 0.1,
         delay: 0.6,
@@ -131,42 +127,39 @@ export default function ProjectsPage() {
 
       // Client categories animations
       gsap.from(".client-category", {
-        y: 80,
-        opacity: 0,
+        y: 40,
         duration: 0.8,
         stagger: 0.15,
         ease: "power3.out",
         scrollTrigger: {
           trigger: clientsRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
       // Stats section animations
       gsap.from(".stat-box", {
-        y: 50,
-        opacity: 0,
+        y: 30,
         duration: 0.6,
         stagger: 0.1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".stats-grid",
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
       // CTA section animations
       gsap.from(".cta-content", {
-        y: 50,
-        opacity: 0,
+        y: 30,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".cta-section",
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 

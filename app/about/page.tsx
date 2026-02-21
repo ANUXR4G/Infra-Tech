@@ -86,127 +86,116 @@ export default function AboutPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animations
+      // Hero animations - no opacity to prevent loading issues
       gsap.from(".about-hero-badge", {
-        y: 30,
-        opacity: 0,
+        y: 20,
         duration: 0.8,
         ease: "power3.out",
       })
 
       gsap.from(".about-hero-title", {
-        y: 60,
-        opacity: 0,
+        y: 30,
         duration: 1,
         delay: 0.2,
         ease: "power3.out",
       })
 
       gsap.from(".about-hero-desc", {
-        y: 40,
-        opacity: 0,
+        y: 20,
         duration: 0.8,
         delay: 0.4,
         ease: "power3.out",
       })
 
       gsap.from(".about-hero-stats", {
-        y: 40,
-        opacity: 0,
+        y: 20,
         duration: 0.8,
         delay: 0.6,
         ease: "power3.out",
       })
 
-      // Story section animations
+      // Story section animations - removed opacity to prevent loading issues
       gsap.from(".story-image", {
-        x: -80,
-        opacity: 0,
+        x: -40,
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: storyRef.current,
           start: "top 75%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
       gsap.from(".story-content", {
-        x: 80,
-        opacity: 0,
+        x: 40,
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: storyRef.current,
           start: "top 75%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
-      // Values section animations
+      // Values section animations - removed opacity animation to prevent loading issues
       gsap.from(".values-title", {
-        y: 50,
-        opacity: 0,
+        y: 30,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
           trigger: valuesRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
+      // Value cards - no opacity animation to ensure they're always visible
       gsap.from(".value-card", {
-        y: 60,
-        opacity: 0,
+        y: 30,
         duration: 0.6,
         stagger: 0.1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".values-grid",
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
-      // Stats animations
+      // Stats animations - removed opacity to prevent loading issues
       gsap.from(".stat-item", {
-        y: 40,
-        opacity: 0,
+        y: 20,
         duration: 0.6,
         stagger: 0.1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".stats-section",
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
-      // Team section animations
+      // Team section animations - removed opacity to prevent loading issues
       gsap.from(".team-title", {
-        y: 50,
-        opacity: 0,
+        y: 30,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
           trigger: teamRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
 
       gsap.from(".team-card", {
-        y: 80,
-        opacity: 0,
-        rotation: 5,
+        y: 40,
         duration: 0.8,
         stagger: 0.15,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".team-grid",
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       })
     })
