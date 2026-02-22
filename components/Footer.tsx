@@ -263,7 +263,6 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm text-center md:text-left">
               &copy; {new Date().getFullYear()} INFRATECH INDIA. All rights reserved.
-              GSTIN: 07AWCPA8065H1ZN
             </p>
             <div className="flex items-center gap-6">
               <Link

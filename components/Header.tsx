@@ -25,11 +25,12 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="INFRATECH INDIA"
-            width={40}
-            height={40}
-            className="h-10 w-auto"
+            width={70}
+            height={70}
           />
-          <span className="hidden sm:inline font-bold text-lg">INFRATECH INDIA</span>
+          <span className="hidden sm:inline font-bold text-lg text-[#ee961b]">INFRATECH</span>
+          <span className="hidden sm:inline font-bold text-lg">INDIA</span>
+
         </Link>
 
         {/* Desktop Navigation */}

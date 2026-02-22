@@ -272,15 +272,16 @@ export default function Page() {
             {/* Left Content */}
             <div className="flex flex-col gap-6 sm:gap-8">
               <div>
-                <h1 className="hero-title text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-                  Innovative Technologies for Modern Construction
-                </h1>
+                <h2 className="hero-title text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight text-balance">
+                  Innovative Solutions for Modern Construction
+                </h2>
               </div>
 
-              <p className="hero-description text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Embrace cutting-edge advancements like 3D printing, modular construction, and drones to revolutionize design, efficiency, and project delivery in the construction industry.
-              </p>
-
+              <h3 className="hero-description text-base sm:text-lg text-muted-foreground leading-relaxed text-black">
+              <p className='font-bold text-2xl'>Building Excellence Since 2014 </p>
+              INFRATECH INDIA is a leading contracting and trading company delivering end-to-end infrastructure solutions to commercial organizations across India. From turnkey interior & building construction, waterproofing, and electrical services to modular furniture and premium sanitaryware — we provide fully customized solutions under one roof.
+              <br/>
+              Trusted across several sectors including Construction, Manufacturing, Hospitality, IT, Entertainment & Education.              </h3>
               <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link href="/contact">
                   <Button
@@ -299,28 +300,6 @@ export default function Page() {
                     Call Us
                   </Button>
                 </a>
-              </div>
-
-              {/* Stats */}
-              <div className="hero-stats grid grid-cols-3 gap-4 pt-4 sm:pt-6">
-                <StatCard number="150+" label="Complete Projects" />
-                <StatCard number="100+" label="Team Members" />
-                <StatCard number="200+" label="Client Reviews" />
-              </div>
-
-              {/* Team Avatars */}
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-accent/20 border-2 border-background flex items-center justify-center text-xs font-semibold text-accent"
-                    >
-                      {i}
-                    </div>
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground ml-2">+30 more</span>
               </div>
             </div>
 
@@ -439,71 +418,6 @@ export default function Page() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quality Section */}
-      <section ref={qualityRef} className="w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Video with play button */}
-            <div className="quality-image relative h-80 sm:h-96 rounded-3xl overflow-hidden bg-secondary">
-              <video
-                ref={videoRef}
-                src="/videoplayback.mp4"
-                className="w-full h-full object-cover"
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                poster="/quality-poster.jpg"
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-              />
-              <button 
-                onClick={handleVideoClick}
-                className={`absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300 ${isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'}`}
-              >
-                <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center shadow-lg hover:bg-accent hover:scale-110 transition-all duration-300">
-                  {isPlaying ? (
-                    <Pause className="w-6 h-6 text-accent-foreground" fill="currentColor" />
-                  ) : (
-                    <Play className="w-6 h-6 text-accent-foreground ml-1" fill="currentColor" />
-                  )}
-                </div>
-              </button>
-            </div>
-
-            {/* Content */}
-          <div className="quality-content flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-center">
-
-  {/* Right Content Section - Unchanged */}
-  <div className="flex flex-col gap-6 lg:gap-8 w-full lg:w-1/2">
-    <div>
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
-        Quality That Speaks for Itself
-      </h2>
-      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mt-4">
-        Our unwavering attention to detail and commitment ensure every project reflects our dedication to excellence and client satisfaction.
-      </p>
-    </div>
-
-    <div className="quality-points space-y-3">
-      {qualityPoints.map((point, index) => (
-        <div key={index} className="quality-point flex items-start gap-3">
-          <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-          <span className="text-base text-foreground">{point}</span>
-        </div>
-      ))}
-    </div>
-
-    <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-fit font-semibold">
-      Learn More
-    </Button>
-  </div>
-</div>
-
           </div>
         </div>
       </section>

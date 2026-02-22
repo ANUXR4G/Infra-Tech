@@ -267,10 +267,6 @@ export default function AboutPage() {
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
                     <Award className="w-6 h-6 text-accent" />
                   </div>
-                  <div>
-                    <div className="font-bold text-foreground">GSTIN Registered</div>
-                    <div className="text-sm text-muted-foreground">07AWCPA8065H1ZN</div>
-                  </div>
                 </div>
               </div>
             </div>

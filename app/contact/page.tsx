@@ -221,60 +221,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              {/* GSTIN, Website, Banker Cards */}
-              <div className="space-y-4">
-                <div className="bg-card p-5 rounded-xl border border-border hover:border-accent/50 transition-all">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                      <CreditCard className="w-6 h-6 text-accent" />
-                    </div>
-                    <div>
-                      <span className="text-sm text-muted-foreground">GSTIN</span>
-                      <p className="font-bold text-foreground text-lg">07AWCPA8065H1ZN</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-card p-5 rounded-xl border border-border hover:border-accent/50 transition-all">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                      <Globe className="w-6 h-6 text-accent" />
-                    </div>
-                    <div className="flex-1">
-                      <span className="text-sm text-muted-foreground">Website</span>
-                      <a 
-                        href="https://www.infratechindia.in" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 font-bold text-accent text-lg hover:underline"
-                      >
-                        www.infratechindia.in
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-card p-5 rounded-xl border border-border hover:border-accent/50 transition-all">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                      <Image
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/ICICI_Bank_Logo.svg/100px-ICICI_Bank_Logo.svg.png"
-                        alt="ICICI Bank"
-                        width={32}
-                        height={32}
-                        className="object-contain"
-                        unoptimized
-                      />
-                    </div>
-                    <div>
-                      <span className="text-sm text-muted-foreground">Banker</span>
-                      <p className="font-bold text-foreground text-lg">ICICI Bank</p>
-                      <p className="text-sm text-muted-foreground">New Friends Colony Branch</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          
 
               {/* Quick Contact */}
               <div className="bg-card p-6 rounded-xl border border-border">
